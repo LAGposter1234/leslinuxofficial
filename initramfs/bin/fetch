@@ -1,0 +1,13 @@
+#!/bin/bash
+
+echo -e "\033[41m       \033[0m"
+echo -e "\033[103m       \033[0m"
+echo -e "\033[47m       \033[0m"
+echo -e "\033[105m       \033[0m"
+echo -e "\033[45m       \033[0m"
+
+echo
+echo "Lesbian's Linux"
+echo "Kernel: $(uname -r)"
+echo "Shell: $SHELL"
+echo "Arch: $(uname -m)"
