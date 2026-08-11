@@ -28,6 +28,8 @@ int _start(void) {
     // also secretly set up the secretly secret /proc and /sys filesystems
     syscall(SYS_mount, "proc", "/proc", "proc", 0, NULL);
     syscall(SYS_mount, "sysfs", "/sys", "sysfs", 0, NULL);
+    syscall(SYS_mkdir, "/dev/pts", 0755);
+    syscall(SYS_mount, "devpts", "/dev/pts", "devpts", 0, NULL);
     // mount /dev/sda as /mnt/persist using mount syscall
     if (syscall(SYS_mount, "/dev/sda", "/home/", "ext4", 0, NULL) != 0) {
         // failed is red
@@ -81,7 +83,7 @@ puts("\033[45m              \033[0m\n"); // Magenta
     
     // start shell
     char *env[] = {
-        "PATH=/bin",
+        "PATH=/bin:/usr/bin",
         "HOME=/home/root",
         "TERM=linux",
         NULL

@@ -6,7 +6,7 @@ void _start(void) {
     //syscall(SYS_setuid, 1000);
     //syscall(SYS_setgid, 1000);
     char *env[] = {
-        "PATH=/bin",
+        "PATH=/bin:/usr/bin",
         "HOME=/home/root",
         "TERM=linux",
         NULL

@@ -7,4 +7,4 @@ gcc -static -o bin/leslogin lesinit.c -Iusr/include -nostartfiles -nostdlib -fno
 
 find . | cpio -H newc -o | gzip > ../initramfs.img
 cd ..
-qemu-system-x86_64 -kernel arch/x86/boot/bzImage -initrd initramfs.img -append "console=tty0 quiet loglevel=3" -drive file=persist.img,format=raw -vga std -m 2G
+qemu-system-x86_64 -kernel initramfs/boot/kernel -initrd initramfs.img -append "console=tty0 loglevel=0" -drive file=persist.img,format=raw -device virtio-gpu -device qemu-xhci -device usb-tablet -m 2G

@@ -55,7 +55,7 @@ puts("\033[45m              \033[0m\n"); // Magenta
     
     // start shell
     char *env[] = {
-        "PATH=/bin",
+        "PATH=/bin:/usr/bin",
         "HOME=/home/root",
         "TERM=linux",
         NULL
