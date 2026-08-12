@@ -1,0 +1,30 @@
+{
+    "logo": {
+        "type": "data",
+        "source": "        ##\n  .$### ## ###$.\n .$############$.\n|$##############$|\n *$############$*\n  *$### ## ###$*\n        ##\n        ##\n       ####\n       ####\n      .####.\n      ######",
+        "color": {
+            "1": "#9b66ff"
+        }
+    },
+
+    "display": {
+        "separator": ": ",
+        "color": {
+            "keys": "#9b66ff",
+            "title": "#9b66ff",
+            "output": "#9b66ff",
+            "separator": "#9b66ff"
+        }
+    },
+
+    "modules": [
+        "title",
+        "separator",
+        "os",
+        "kernel",
+        "uptime",
+        "shell",
+        "cpu",
+        "memory"
+    ]
+}

@@ -2,7 +2,7 @@
 
 ![Logo](assets/labrys.svg)
 
-# Version: 0.2.0
+# Version: 0.2.1
 This distro is a Hobby distro designed to "at least half-work", which it dose.
 
 It is installable. The installer is at /bin/lesinstall.sh (During boot)
@@ -55,3 +55,15 @@ Second release
 + /dev/fb0
 * note: tried to get X11 working, failed
 
+### Minor Update 0.2.1
+
++ Updated installer (you can select which drive to install to now)
++ fastfetch works
++ Official logo was created, its a purple labrys (basically a hammer)
++ Added Lua stuff (Try running `lua` or `luac`!)
+
+#### Plans
+
+i plan to maybe get java working? idk prolly not XD
+
+i also hope to get this working on real hardware, ill try to add as much support for real hardware as i can in 0.3.0

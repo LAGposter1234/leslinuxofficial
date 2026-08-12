@@ -21,6 +21,7 @@ int _start(void) {
         "devtmpfs",
         0,
         NULL);
+    syscall(SYS_mount, "proc", "/proc", "proc", 0, NULL);
 
     puts("\033[33m[ TASK ]\033[0m Set hostname\n");
     // set hostname to contents of /etc/hostname
@@ -61,9 +62,11 @@ puts("\033[45m              \033[0m\n"); // Magenta
         NULL
     };
     char *args[] = { "/bin/bash", "/root/init.sh", NULL };
+    char* bargs[] = {"/bin/bash", NULL};
+    exec(args[0], args, env);
     while(1) {
         //syscall(SYS_execve, args[0], args, env);
-        exec(args[0], args, env);
+        exec(args[0], bargs, env);
     }
     return 0;
 }

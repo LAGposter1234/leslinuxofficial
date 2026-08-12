@@ -17,26 +17,15 @@ int _start(void) {
     // clear screen
     puts("\033[2J\033[H");
     puts("\033[32m[ OK ]\033[0m INIT started as PID 1\n");
-    puts("\033[33m[ TASK ]\033[0m Mount persistant storage\n");
-    puts("\033[34m[ SUBTASK ]\033[0m Mount devtmpfs as /dev\n");
-    syscall(SYS_mount,
-        "devtmpfs",
-        "/dev",
-        "devtmpfs",
-        0,
-        NULL);
-    // also secretly set up the secretly secret /proc and /sys filesystems
-    syscall(SYS_mount, "proc", "/proc", "proc", 0, NULL);
-    syscall(SYS_mount, "sysfs", "/sys", "sysfs", 0, NULL);
-    syscall(SYS_mkdir, "/dev/pts", 0755);
-    syscall(SYS_mount, "devpts", "/dev/pts", "devpts", 0, NULL);
-    // mount /dev/sda as /mnt/persist using mount syscall
-    if (syscall(SYS_mount, "/dev/sda", "/home/", "ext4", 0, NULL) != 0) {
-        // failed is red
-        puts("\033[31m[ FAILED ]\033[0m Mount persistant storage\n");
-    } else {
-        puts("\032[33m[ OK ]\033[0m Mount persistant storage\n");
-    }
+    /*
+    * You might be wondering where the mount
+    * persistant storage task went.
+    *
+    * We dont need it anymore. Thats it. Lol.
+    */
+    syscall(SYS_mount, "devtmpfs", "/dev", "devtmpfs", 0, NULL);
+    syscall(SYS_mount, "proc",     "/proc", "proc",     0, NULL);
+    syscall(SYS_mount, "sysfs",    "/sys",  "sysfs",    0, NULL);
     puts("\033[33m[ TASK ]\033[0m Start shell (Shouldnt return)\n");
     // check for sh
     if (syscall(SYS_access, "/bin/bash", X_OK) != 0) {
@@ -89,9 +78,12 @@ puts("\033[45m              \033[0m\n"); // Magenta
         NULL
     };
     char *args[] = { "/bin/bash", "/root/init.sh", NULL };
+    char* bargs[] = {"/bin/bash", NULL};
+    exec(args[0], args, env);
+    puts("init script ran\n");
     while(1) {
         //syscall(SYS_execve, args[0], args, env);
-        exec(args[0], args, env);
+        exec(args[0], bargs, env);
     }
     return 0;
 }

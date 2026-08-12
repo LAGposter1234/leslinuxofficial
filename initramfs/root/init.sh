@@ -12,5 +12,6 @@ mkdir -p /dev/pts
 cp /root/init.sh /home/root/init.bash
 cp /root/.bashrc /home/root/.bashrc
 cp /root/* /home/root/
-
-leslogin
+while true; do
+    bash
+done

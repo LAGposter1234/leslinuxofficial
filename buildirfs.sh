@@ -2,7 +2,6 @@
 set -e
 cd initramfs
 gcc -static -o init init.c -Iusr/include -nostartfiles -nostdlib -fno-stack-protector
-gcc -static -o bin/leslogin lesinit.c -Iusr/include -nostartfiles -nostdlib -fno-stack-protector
 #cp arch/x86/boot/bzImage ./boot/kernel
 
 find . | cpio -H newc -o | gzip > ../initramfs.img
