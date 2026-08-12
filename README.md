@@ -1,5 +1,5 @@
 # LesLinux
-# Version: 0.1
+# Version: 0.2.0
 This distro is a Hobby distro designed to "at least half-work", which it dose.
 
 It is installable. The installer is at /bin/lesinstall.sh (During boot)
@@ -36,3 +36,19 @@ Here are some images i screenshotted from an installed system.
 ![Grub](assets/qemugrub.png)
 ![Booted](assets/qemules.png)
 ![Programs](assets/qemulesprograms.png)
+
+
+# CHANGELOG
+
+## Release 0.1.0
+
+First release
+
+## Release 0.2.0
+
+Second release
++ framebuffer support
++ virtio-gpu support
++ /dev/fb0
+* note: tried to get X11 working, failed
+
