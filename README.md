@@ -1,4 +1,7 @@
 # LesLinux
+
+![Logo](assets/labrys.svg)
+
 # Version: 0.2.0
 This distro is a Hobby distro designed to "at least half-work", which it dose.
 
